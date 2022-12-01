@@ -38,6 +38,7 @@ const App: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    description: "",
   });
   const [errorMsg, setErrorMsg] = useState({
     name: "",
@@ -50,7 +51,14 @@ const App: React.FC = () => {
       /\S+@\S+\.\S+/.test(formData.email)
     ) {
       Modal.success({
-        content: "Success",
+        title: "Success",
+        content: (
+            <>
+               Name: {formData.name}.<br />
+               Email: {formData.email}.<br />
+               Description: {formData.description}.
+            </>
+        ),
       });
     } else {
       if (!formData.name) {
@@ -67,7 +75,9 @@ const App: React.FC = () => {
     }
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -157,7 +167,11 @@ const App: React.FC = () => {
                   </Button>
                 </Form.Item>
                 <Form.Item label="Please share anything that will help prepare for our meeting.">
-                  <TextArea rows={4} />
+                  <TextArea
+                    rows={4}
+                    name="description"
+                    onChange={handleChange}
+                  />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 0, span: 12 }}>
