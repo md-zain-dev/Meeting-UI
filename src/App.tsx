@@ -54,9 +54,9 @@ const App: React.FC = () => {
         title: "Success",
         content: (
             <>
-               Name: {formData.name}.<br />
-               Email: {formData.email}.<br />
-               Description: {formData.description}.
+               Name: {formData.name}<br />
+               Email: {formData.email}<br />
+               Description: {formData.description}
             </>
         ),
       });
