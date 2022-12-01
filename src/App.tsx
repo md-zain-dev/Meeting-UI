@@ -60,7 +60,6 @@ const App: React.FC = () => {
       } else {
         errorMsg.email = "Please enter valid email";
       }
-      console.log(errorMsg);
       Modal.error({
         title: "Error",
         content: errorMsg.name !== "" ? errorMsg.name : errorMsg.email,
@@ -136,7 +135,7 @@ const App: React.FC = () => {
               <Form
                 name="basic"
                 labelCol={{ span: 0 }}
-                wrapperCol={{ span: 12 }}
+                wrapperCol={{ lg: 12 }}
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 autoComplete="off"
