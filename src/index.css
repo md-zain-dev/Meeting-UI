@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app-container {
+    min-height: 100vh;
+    padding: 50px;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        padding: 0;
+    }
+}
